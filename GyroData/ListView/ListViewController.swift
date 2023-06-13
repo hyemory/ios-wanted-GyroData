@@ -42,7 +42,13 @@ final class ListViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "측정",
                                                             style: .plain,
                                                             target: self,
-                                                            action: nil)
+                                                            action: #selector(pushAddDataView))
+    }
+    
+    @objc private func pushAddDataView() {
+        let addDataViewController = AddDataViewController()
+        
+        navigationController?.pushViewController(addDataViewController, animated: true)
     }
     
     private func configureTableView() {
@@ -67,7 +73,7 @@ final class ListViewController: UIViewController {
             
             let measuredData = self?.measuredDataList[indexPath.row]
             
-            guard let date = measuredData?.date.description,
+            guard let date = measuredData?.date.translateDayFormat(),
                   let sensorName = measuredData?.sensor.title,
                   let measuredTime = measuredData?.time else {
                 return UITableViewCell()
