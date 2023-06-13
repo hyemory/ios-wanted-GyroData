@@ -15,6 +15,8 @@
 		BF2983ED2A389D9A00BE0C03 /* MeasuredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983EC2A389D9A00BE0C03 /* MeasuredData.swift */; };
 		BF2983F02A38AF0A00BE0C03 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983EF2A38AF0A00BE0C03 /* ListCell.swift */; };
 		BF2983F32A38B4E800BE0C03 /* IdentifierType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983F22A38B4E800BE0C03 /* IdentifierType.swift */; };
+		BF2983F62A38BB0700BE0C03 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983F52A38BB0700BE0C03 /* AddDataViewController.swift */; };
+		BF2983F92A38C02000BE0C03 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983F82A38C02000BE0C03 /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		BF2983EC2A389D9A00BE0C03 /* MeasuredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuredData.swift; sourceTree = "<group>"; };
 		BF2983EF2A38AF0A00BE0C03 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		BF2983F22A38B4E800BE0C03 /* IdentifierType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierType.swift; sourceTree = "<group>"; };
+		BF2983F52A38BB0700BE0C03 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
+		BF2983F82A38C02000BE0C03 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +66,10 @@
 			children = (
 				BFFE84972A373E5600C31EF0 /* Application */,
 				BFFE84962A373D7400C31EF0 /* Resource */,
-				BF2983F12A38B4D800BE0C03 /* Protocol */,
+				BF2983F72A38C00000BE0C03 /* Extension */,
 				BF2983EB2A389D7300BE0C03 /* Model */,
 				BF2983EE2A38AEBB00BE0C03 /* ListView */,
+				BF2983F42A38BAD700BE0C03 /* AddDataView */,
 			);
 			path = GyroData;
 			sourceTree = "<group>";
@@ -80,6 +85,7 @@
 		BF2983EE2A38AEBB00BE0C03 /* ListView */ = {
 			isa = PBXGroup;
 			children = (
+				BF2983F12A38B4D800BE0C03 /* Protocol */,
 				63F01BB828D44FC400C53A39 /* ListViewController.swift */,
 				BF2983EF2A38AF0A00BE0C03 /* ListCell.swift */,
 			);
@@ -92,6 +98,22 @@
 				BF2983F22A38B4E800BE0C03 /* IdentifierType.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		BF2983F42A38BAD700BE0C03 /* AddDataView */ = {
+			isa = PBXGroup;
+			children = (
+				BF2983F52A38BB0700BE0C03 /* AddDataViewController.swift */,
+			);
+			path = AddDataView;
+			sourceTree = "<group>";
+		};
+		BF2983F72A38C00000BE0C03 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF2983F82A38C02000BE0C03 /* Date+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BFFE84962A373D7400C31EF0 /* Resource */ = {
@@ -187,8 +209,10 @@
 				BF2983ED2A389D9A00BE0C03 /* MeasuredData.swift in Sources */,
 				63F01BB528D44FC400C53A39 /* AppDelegate.swift in Sources */,
 				BF2983F02A38AF0A00BE0C03 /* ListCell.swift in Sources */,
+				BF2983F62A38BB0700BE0C03 /* AddDataViewController.swift in Sources */,
 				BF2983F32A38B4E800BE0C03 /* IdentifierType.swift in Sources */,
 				63F01BB728D44FC400C53A39 /* SceneDelegate.swift in Sources */,
+				BF2983F92A38C02000BE0C03 /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

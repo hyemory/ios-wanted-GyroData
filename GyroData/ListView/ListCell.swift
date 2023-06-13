@@ -23,6 +23,7 @@ final class ListCell: UITableViewCell {
     private let measuredTimeLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
+        label.textAlignment = .center
         return label
     }()
     
