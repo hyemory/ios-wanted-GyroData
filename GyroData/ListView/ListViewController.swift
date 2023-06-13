@@ -23,7 +23,7 @@ final class ListViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-//        tableView.register(nil, forCellReuseIdentifier: )
+        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -33,6 +33,7 @@ final class ListViewController: UIViewController {
         configureUIOption()
         configureTableView()
         configureDataSource()
+        applySnapshot()
     }
     
     private func configureUIOption() {
@@ -46,10 +47,35 @@ final class ListViewController: UIViewController {
     
     private func configureTableView() {
         view.addSubview(tableView)
+        
+        tableView.dataSource = dataSource
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     
     private func configureDataSource() {
-        
+        dataSource = UITableViewDiffableDataSource<Section, MeasuredData>(tableView: tableView) {
+            [weak self] (tableView, indexPath, data) -> UITableViewCell? in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else {
+                return UITableViewCell()
+            }
+            
+            let measuredData = self?.measuredDataList[indexPath.row]
+            
+            guard let date = measuredData?.date.description,
+                  let sensorName = measuredData?.sensor.title,
+                  let measuredTime = measuredData?.time else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(date: date, sensorName: sensorName, measuredTime: String(measuredTime))
+            return cell
+        }
     }
     
     private func applySnapshot() {

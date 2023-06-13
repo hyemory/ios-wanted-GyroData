@@ -29,7 +29,6 @@ final class ListCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -50,10 +49,11 @@ final class ListCell: UITableViewCell {
         leftStackView.spacing = 12
         
         let stackView = UIStackView(arrangedSubviews: [leftStackView, measuredTimeLabel])
-        leftStackView.axis = .horizontal
-        leftStackView.distribution = .fill
-        leftStackView.alignment = .fill
-        leftStackView.spacing = 12
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 12
         return stackView
     }
     
