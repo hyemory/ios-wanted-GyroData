@@ -55,6 +55,7 @@ final class ListViewController: UIViewController {
         view.addSubview(tableView)
         
         tableView.dataSource = dataSource
+        tableView.delegate = self
         
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -90,5 +91,30 @@ final class ListViewController: UIViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(measuredDataList, toSection: .main)
         dataSource?.apply(snapshot)
+    }
+}
+
+// MARK: - Table view delegate
+
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedData = measuredDataList[indexPath.row]
+        
+        // 구현 중인 곳...
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let playAction = UIContextualAction(style: .normal, title: "Play") { [weak self] _, _, _ in
+            // 보기 페이지 이동 구현 필요
+        }
+        playAction.backgroundColor = .systemGreen
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+            self?.measuredDataList.remove(at: indexPath.row)
+            self?.applySnapshot()
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, playAction])
     }
 }
