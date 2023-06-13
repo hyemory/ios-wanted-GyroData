@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MeasuredData {
+struct MeasuredData: Hashable {
     let id: UUID
     let date: Date
     let sensor: Sensor
@@ -29,7 +29,7 @@ enum Sensor {
     }
 }
 
-struct SensorData {
+struct SensorData: Codable, Hashable {
     let x: [Double]
     let y: [Double]
     let z: [Double]
