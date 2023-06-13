@@ -10,19 +10,19 @@ import UIKit
 final class ListCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .caption1)
+        label.font = .preferredFont(forTextStyle: .callout)
         return label
     }()
     
     private let sensorNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .preferredFont(forTextStyle: .title2)
         return label
     }()
     
     private let measuredTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .title2)
+        label.font = .preferredFont(forTextStyle: .title1)
         return label
     }()
     
@@ -46,14 +46,13 @@ final class ListCell: UITableViewCell {
         leftStackView.axis = .vertical
         leftStackView.distribution = .fill
         leftStackView.alignment = .fill
-        leftStackView.spacing = 12
+        leftStackView.spacing = 16
         
         let stackView = UIStackView(arrangedSubviews: [leftStackView, measuredTimeLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackView.spacing = 12
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
         return stackView
     }
     
