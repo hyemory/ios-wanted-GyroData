@@ -18,6 +18,7 @@
 		BF2983F62A38BB0700BE0C03 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983F52A38BB0700BE0C03 /* AddDataViewController.swift */; };
 		BF2983F92A38C02000BE0C03 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983F82A38C02000BE0C03 /* Date+.swift */; };
 		BF2983FB2A38D41600BE0C03 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2983FA2A38D41600BE0C03 /* CoreMotionManager.swift */; };
+		BF5929B82A3A1E2300EFB461 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5929B72A3A1E2300EFB461 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BF2983F52A38BB0700BE0C03 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
 		BF2983F82A38C02000BE0C03 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		BF2983FA2A38D41600BE0C03 /* CoreMotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
+		BF5929B72A3A1E2300EFB461 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				BF2983F52A38BB0700BE0C03 /* AddDataViewController.swift */,
+				BF5929B72A3A1E2300EFB461 /* GraphView.swift */,
 			);
 			path = AddDataView;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				BF2983ED2A389D9A00BE0C03 /* MeasuredData.swift in Sources */,
 				63F01BB528D44FC400C53A39 /* AppDelegate.swift in Sources */,
 				BF2983F02A38AF0A00BE0C03 /* ListCell.swift in Sources */,
+				BF5929B82A3A1E2300EFB461 /* GraphView.swift in Sources */,
 				BF2983F62A38BB0700BE0C03 /* AddDataViewController.swift in Sources */,
 				BF2983F32A38B4E800BE0C03 /* IdentifierType.swift in Sources */,
 				63F01BB728D44FC400C53A39 /* SceneDelegate.swift in Sources */,

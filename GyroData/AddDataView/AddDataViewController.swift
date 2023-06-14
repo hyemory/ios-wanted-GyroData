@@ -16,6 +16,8 @@ final class AddDataViewController: UIViewController {
         return segment
     }()
     
+    private let graphView = GraphView(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
+    
     private let startButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("측정", for: .normal)
@@ -49,7 +51,7 @@ final class AddDataViewController: UIViewController {
     }
     
     private func createContentsStackView() -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: [segmentControl, startButton, stopButton])
+        let stackView = UIStackView(arrangedSubviews: [segmentControl, graphView, startButton, stopButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
@@ -66,7 +68,10 @@ final class AddDataViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            
+            graphView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            graphView.heightAnchor.constraint(equalTo: graphView.widthAnchor)
         ])
     }
     
