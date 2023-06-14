@@ -100,17 +100,19 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedData = measuredDataList[indexPath.row]
         
-        // 구현 중인 곳...
+        // 다시보기 페이지 이동 구현 필요 (View 타입)
     }
     
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let playAction = UIContextualAction(style: .normal, title: "Play") { [weak self] _, _, _ in
-            // 보기 페이지 이동 구현 필요
+            // 다시보기 페이지 이동 구현 필요 (Play 타입)
         }
         playAction.backgroundColor = .systemGreen
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+            // 데이터 삭제 구현 필요
+            
             self?.measuredDataList.remove(at: indexPath.row)
             self?.applySnapshot()
         }

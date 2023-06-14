@@ -8,6 +8,8 @@
 import UIKit
 
 final class AddDataViewController: UIViewController {
+    private let motionManager = CoreMotionManager()
+    
     private let segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl(items: ["Acc", "Gyro"])
         segment.selectedSegmentIndex = 0
@@ -41,6 +43,9 @@ final class AddDataViewController: UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: nil)
+        
+        startButton.addTarget(self, action: #selector(startCoreMotionMeasure), for: .touchUpInside)
+        stopButton.addTarget(self, action: #selector(stopCoreMotionMeasure), for: .touchUpInside)
     }
     
     private func createContentsStackView() -> UIStackView {
@@ -63,5 +68,13 @@ final class AddDataViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+    }
+    
+    @objc private func startCoreMotionMeasure() {
+        motionManager.startMeasure(of: .accelerometer)
+    }
+    
+    @objc private func stopCoreMotionMeasure() {
+        motionManager.stopMeasure()
     }
 }
