@@ -71,7 +71,9 @@ final class AddDataViewController: UIViewController {
     }
     
     @objc private func startCoreMotionMeasure() {
-        motionManager.startMeasure(of: .accelerometer)
+        let sensor: Sensor = segmentControl.selectedSegmentIndex == 0 ? .accelerometer : .gyroscope
+        
+        motionManager.startMeasure(of: sensor)
     }
     
     @objc private func stopCoreMotionMeasure() {

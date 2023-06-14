@@ -13,15 +13,16 @@ final class CoreMotionManager {
     private var xData: [Double] = []
     private var yData: [Double] = []
     private var zData: [Double] = []
+    private var sensor = Sensor.accelerometer
     
     init() {
         motionManager.accelerometerUpdateInterval = 1/60
     }
     
-    func startMeasure(of sensor: Sensor) {
+    func startMeasure(of sensorType: Sensor) {
         guard motionManager.isAccelerometerAvailable || motionManager.isGyroAvailable else { return }
        
-        switch sensor {
+        switch sensorType {
         case .accelerometer:
             motionManager.startAccelerometerUpdates(to: OperationQueue.main) { [weak self] (accelerometerData, error) in
                 if let error {
@@ -35,8 +36,23 @@ final class CoreMotionManager {
                     self?.zData.append(data.acceleration.z)
                 }
             }
+            
+            sensor = .accelerometer
         case .gyroscope:
-            break
+            motionManager.startGyroUpdates(to: OperationQueue.main) { [weak self] gyroData, error in
+                if let error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                if let data = gyroData {
+                    self?.xData.append(data.rotationRate.x)
+                    self?.yData.append(data.rotationRate.y)
+                    self?.zData.append(data.rotationRate.z)
+                }
+            }
+            
+            sensor = .gyroscope
         }
     }
     
